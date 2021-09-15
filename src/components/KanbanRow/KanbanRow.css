@@ -1,0 +1,8 @@
+.row {
+    background-color: bisque;
+    height: 800px;
+    width:200px;
+    display: inline-block;
+    margin: 8px;
+    padding: 16px;
+}
