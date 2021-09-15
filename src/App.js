@@ -1,25 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import KanbanRow from './components/KanbanRow';
+class App extends React.Component {
+  constructor (props){
+    super(props);
+    this.state = { 
+      done: {text: "Done", items: []}, 
+      pending: {text: "Pending", items: []}, 
+      doing: {text: "doing", items: []}, 
+      open: {text: "open", items: []}, 
+    };  
+  }
+  render() {
+    return <KanbanRow></KanbanRow>;
+  }
 }
 
 export default App;
