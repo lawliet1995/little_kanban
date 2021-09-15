@@ -29,10 +29,14 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-          <div className="ui container">
+        <div className="ui container">
+          <div style={{margin: '16px auto 30px', }}>
+            <h1 style={{color: 'plum', fontFamily: 'serif'}}>Simple Kanban</h1>
+          </div>
+
           <form className="ui form">
             <div className="field">
-              <label>Add New Task</label>
+              <label style={{color: 'rgb(0, 200, 200)'}}>Add New Task</label>
               <input type="text" name="task-name" placeholder="write task here" style = {{
                     display: 'inline',
                     width: 'calc(100% - 350px)',
