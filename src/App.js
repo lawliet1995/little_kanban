@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./App.module.css";
 import KanbanRow from './components/KanbanRow/KanbanRow';
+import EditModal from "./components/EditModal/EditModal";
 
 class App extends React.Component {
   constructor (props){
@@ -57,39 +58,9 @@ class App extends React.Component {
               <KanbanRow data={this.state.pending}></KanbanRow>
               <KanbanRow data={this.state.done}></KanbanRow>
           </div>
-        </div>    
-
-        <div className="ui modal">
-          <i className="close icon"></i>
-          <div className="header">
-            Profile Picture
-          </div>
-          <div className="image content">
-            <div className="ui medium image">
-              <img alt="" src="/images/avatar/large/chris.jpg" />
-            </div>
-            <div className="description">
-              <div className="ui header">We've auto-chosen a profile image for you.</div>
-              <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank"  rel="noreferrer">gravatar</a> image associated with your registered e-mail address.</p>
-              <p>Is it okay to use this photo?</p>
-            </div>
-          </div>
-          <div className="actions">
-            <div className="ui black deny button">
-              Nope
-            </div>
-            <div className="ui positive right labeled icon button">
-              Yep, that's me
-              <i className="checkmark icon"></i>
-            </div>
-          </div>
         </div>
 
-        {/* $('.ui.modal')
-          .modal('show')
-        ; */}
-
-        {/* https://semantic-ui.com/modules/modal.html */}
+        <EditModal />
       </React.Fragment>
 
     );
