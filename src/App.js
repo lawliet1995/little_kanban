@@ -1,6 +1,5 @@
-import './App.css';
 import React from 'react';
-
+import styles from "./App.module.css";
 import KanbanRow from './components/KanbanRow/KanbanRow';
 
 class App extends React.Component {
@@ -30,24 +29,16 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="ui container">
-          <div style={{margin: '16px auto 30px', }}>
-            <h1 style={{color: 'plum', fontFamily: 'serif'}}>Simple Kanban</h1>
+          <div className = {styles.headerWrapper} >
+            <h1 id = {styles.kanbanHeader} >Simple Kanban</h1>
           </div>
 
           <form className="ui form">
             <div className="field">
-              <label style={{color: 'rgb(0, 200, 200)'}}>Add New Task</label>
-              <input type="text" name="task-name" placeholder="write task here" style = {{
-                    display: 'inline',
-                    width: 'calc(100% - 350px)',
-              }}></input>
+              <label id={styles.textLabel} >Add New Task</label>
+              <input id={styles.textInput} type="text" name="task-name" placeholder="write task here"></input>
 
-              <select className="ui dropdown" style = {{
-                display: 'inline-block',
-                width: '140px',
-                minWidth: '140px',
-                margin: '0px 8px'
-              }}>
+              <select id={styles.selectLabel} className="ui dropdown">
                 <option value="open">open</option>
                 <option value="doing">doing</option>
                 <option value="pending">pending</option>
@@ -60,7 +51,7 @@ class App extends React.Component {
           </form>
 
           <div className="ui divider" ></div>
-          <div className="kanban">
+          <div className={styles.kanban}>
               <KanbanRow data={this.state.open}></KanbanRow>
               <KanbanRow data={this.state.doing}></KanbanRow>
               <KanbanRow data={this.state.pending}></KanbanRow>

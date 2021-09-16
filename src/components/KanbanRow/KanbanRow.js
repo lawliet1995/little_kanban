@@ -1,12 +1,12 @@
 import React from "react";
-import './KanbanRow.css';
+import styles from './KanbanRow.module.css';
 import Item from '../Item/Item';
 
 class KanbanRow extends React.Component {
   render() {
     return (
-      <div className = 'row'>
-        <div className="ui large header" style={{backgroundColor: this.props.data.color}}>
+      <div className = {styles.row}>
+        <div className={`${styles.header} ui large header`} style={{backgroundColor: this.props.data.color}}>
           {this.props.data.title}
         </div>
         <div className="ui relaxed divided list">

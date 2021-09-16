@@ -1,0 +1,29 @@
+.kanban {
+    display: flex;
+}
+
+.headerWrapper {
+    margin: 16px auto 30px;
+}
+
+#kanbanHeader {
+    color: plum;
+    font-family: serif;
+    font-size: 3rem;
+}
+
+#textLabel {
+    color: rgb(0, 200, 200);
+}
+
+#textInput {
+    display: inline;
+    width: calc(100% - 350px);
+}
+
+#selectLabel {
+    display: inline-block;
+    width: 140px;
+    min-width: 140px;
+    margin: 0px 8px;
+}

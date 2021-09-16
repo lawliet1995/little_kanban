@@ -1,0 +1,16 @@
+.row {
+    background-color: whitesmoke;
+    height: 500px;
+    width: 25%;
+    /* overflow: scroll; */
+    display: inline-block;
+    margin: 8px;
+    padding: 12px;
+}
+
+.header{
+    color: white !important;
+    text-align: center;
+    padding: 8px !important;
+    border-radius: 3%;
+}
