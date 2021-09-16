@@ -18,7 +18,7 @@
 
 #textInput {
     display: inline;
-    width: calc(100% - 350px);
+    width: calc(100% - 250px);
 }
 
 #selectLabel {
