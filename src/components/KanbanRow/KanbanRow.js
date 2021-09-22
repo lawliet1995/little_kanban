@@ -6,11 +6,11 @@ class KanbanRow extends React.Component {
   render() {
     return (
       <div className = {styles.row}>
-        <div className={`${styles.header} ui large header`} style={{backgroundColor: this.props.data.color}}>
-          {this.props.data.title}
+        <div className={`${styles.header} ui large header`} style={{backgroundColor: this.props.color}}>
+          {this.props.title}
         </div>
         <div className="ui relaxed divided list">
-          {this.props.data.items.map(item => (
+          {this.props.messages.map(item => (
             <Item
               key={item.id}
               id={item.id}

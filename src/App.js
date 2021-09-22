@@ -7,22 +7,16 @@ class App extends React.Component {
   constructor (props){
     super(props);
     this.state = { 
-      done: {title: "Done", color: "#FE9A76", items: [
-        {id: 1, text: 'walk the dog'},
-        {id: 2, text: 'clean the house'},
-      ]}, 
-      pending: {title: "Pending", color: "#00CCFF", items: [        
-        {id: 4, text: 'buy the textbook'},
-        {id: 5, text: 'buy a new phone'},
-        {id: 6, text: 'mission impossible'},
-      ]}, 
-      doing: {title: "doing", color: "#5CB85C", items: [
-        {id: 7, text: 'coding something'},
-      ]}, 
-      open: {title: "open", color: "#F0AD4E", items: [
-        {id: 8, text: 'become a billionare'},
-        {id: 9, text: 'buy a tesla'},
-      ]}, 
+      messages: [
+        {id: 1, text: 'walk the dog', status: 'done'},
+        {id: 2, text: 'clean the house', status: 'done'},
+        {id: 4, text: 'buy the textbook', status: 'pending'},
+        {id: 5, text: 'buy a new phone', status: 'pending'},
+        {id: 6, text: 'mission impossible', status: 'pending'},
+        {id: 7, text: 'coding something', status: 'doing'},
+        {id: 8, text: 'become a billionare', status: 'open'},
+        {id: 9, text: 'buy a tesla', status: 'open'},
+      ], 
       counter: 10
     };  
   }
@@ -53,10 +47,10 @@ class App extends React.Component {
 
           <div className="ui divider" ></div>
           <div className={styles.kanban}>
-              <KanbanRow data={this.state.open}></KanbanRow>
-              <KanbanRow data={this.state.doing}></KanbanRow>
-              <KanbanRow data={this.state.pending}></KanbanRow>
-              <KanbanRow data={this.state.done}></KanbanRow>
+              <KanbanRow messages={this.state.messages.filter(x => x.status === 'open')} title="Open" color="#F0AD4E"></KanbanRow>
+              <KanbanRow messages={this.state.messages.filter(x => x.status === 'doing')} title= "Doing" color="#5CB85C"></KanbanRow>
+              <KanbanRow messages={this.state.messages.filter(x => x.status === 'pending')} title= "Pending" color="#00CCFF"></KanbanRow>
+              <KanbanRow messages={this.state.messages.filter(x => x.status === 'done')} title= "Done" color="#FE9A76"></KanbanRow>
           </div>
         </div>
 
