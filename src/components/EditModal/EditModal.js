@@ -1,4 +1,5 @@
 import React from "react";
+import InputField from "../InputField/InputField";
 
 class EditModal extends React.Component {
     render() {
@@ -16,7 +17,7 @@ class EditModal extends React.Component {
               {/* <div className="ui header">We've auto-chosen a profile image for you.</div>
               <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank"  rel="noreferrer">gravatar</a> image associated with your registered e-mail address.</p>
               <p>Is it okay to use this photo?</p> */}
-              <form className="ui form">
+              {/* <form className="ui form">
                 <div className="field">
                   <input type="text" name="task-name" placeholder="write task here"></input>
                   <br />
@@ -27,7 +28,8 @@ class EditModal extends React.Component {
                     <option value="done">done</option>
                   </select>
                 </div>
-              </form>
+              </form> */}
+              <InputField></InputField>
             </div>
           </div>
           <div className="actions">

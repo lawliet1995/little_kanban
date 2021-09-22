@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from "./App.module.css";
 import KanbanRow from './components/KanbanRow/KanbanRow';
-import EditModal from "./components/EditModal/EditModal";
+import EditModal from './components/EditModal/EditModal';
+import InputField from './components/InputField/InputField';
 
 class App extends React.Component {
   constructor (props){
@@ -28,22 +29,7 @@ class App extends React.Component {
             <h1 id = {styles.kanbanHeader} >Simple Kanban</h1>
           </div>
 
-          <form className="ui form">
-            <div className="field">
-              <label id={styles.textLabel} >Add New Task</label>
-              <input id={styles.textInput} type="text" name="task-name" placeholder="write task here"></input>
-
-              <select id={styles.selectLabel} className="ui dropdown">
-                <option value="open">open</option>
-                <option value="doing">doing</option>
-                <option value="pending">pending</option>
-                <option value="done">done</option>
-              </select>
-
-              <button className="ui primary button" style={{display: 'inline-block',}} >Submit</button>
-
-            </div>
-          </form>
+          <InputField label="addtext"/>
 
           <div className="ui divider" ></div>
           <div className={styles.kanban}>
