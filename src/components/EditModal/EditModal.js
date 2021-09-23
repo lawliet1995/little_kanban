@@ -29,7 +29,7 @@ class EditModal extends React.Component {
                   </select>
                 </div>
               </form> */}
-              <InputField></InputField>
+              <InputField showButton={false}></InputField>
             </div>
           </div>
           <div className="actions">

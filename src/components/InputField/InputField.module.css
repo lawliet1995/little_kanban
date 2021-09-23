@@ -1,10 +1,15 @@
+.flexContainer {
+    display: flex;
+}
+
 #textLabel {
     color: rgb(0, 200, 200);
 }
 
 #textInput {
     display: inline;
-    width: calc(100% - 250px);
+    /* width: calc(100% - 250px); */
+    flex: auto;
 }
 
 #selectLabel {
