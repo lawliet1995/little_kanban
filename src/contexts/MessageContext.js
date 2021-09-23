@@ -3,7 +3,8 @@ import React from 'react';
 const Context = React.createContext('');
 
 export class MessageStore extends React.Component {
-  state = { 
+  state = {
+    selectedMessage: {},
     messages: [
       {id: 1, text: 'walk the dog', status: 'done'},
       {id: 2, text: 'clean the house', status: 'done'},
@@ -19,6 +20,7 @@ export class MessageStore extends React.Component {
 
   onAddMessage = (text, status) => {
     this.setState({
+        ...this.state,
         messages: [...this.state.messages, {
             id: this.state.counter,
             text: text,
@@ -31,8 +33,8 @@ export class MessageStore extends React.Component {
   onDeleteMessage = (id) => {
     let newMessages = this.state.messages.concat().filter(x => x.id !== id);
     this.setState({
-        messages: newMessages,
-        counter: this.state.counter
+      ...this.state,
+      messages: newMessages
     });
   };
 
@@ -49,8 +51,15 @@ export class MessageStore extends React.Component {
         }
     });
     this.setState({
-        messages: newMessages,
-        counter: this.state.counter
+      ...this.state,
+      messages: newMessages,
+    });
+  };
+
+  onSetSelectedMessage = (message) => {
+    this.setState({
+      ...this.state,
+      selectedMessage: message,
     });
   };
 
@@ -61,6 +70,7 @@ export class MessageStore extends React.Component {
             onAddMessage: this.onAddMessage,
             onDeleteMessage: this.onDeleteMessage,
             onUpdateMessage: this.onUpdateMessage,
+            onSetSelectedMessage: this.onSetSelectedMessage
         }}
       >
         {this.props.children}

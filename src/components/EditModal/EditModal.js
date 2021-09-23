@@ -3,6 +3,7 @@ import InputField from "../InputField/InputField";
 
 class EditModal extends React.Component {
     render() {
+      // console.log('render modal', this.props.selectedMessage);
       return (        
         <div className="ui modal">
           {/* <i className="close icon"></i> */}
@@ -29,7 +30,11 @@ class EditModal extends React.Component {
                   </select>
                 </div>
               </form> */}
-              <InputField showButton={false}></InputField>
+              <InputField showButton={false} 
+                id={this.props.selectedMessage.id}
+                text={this.props.selectedMessage.text}
+                status={this.props.selectedMessage.status}
+                ></InputField>
             </div>
           </div>
           <div className="actions">

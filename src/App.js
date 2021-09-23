@@ -21,13 +21,14 @@ class App extends React.Component {
           <div className="ui divider" ></div>
           <div className={styles.kanban}>
             <MessageContext.Consumer>
-              {({messages}) => {
+              {({selectedMessage, messages}) => {
                 return (
                   <React.Fragment>
                     <KanbanRow messages={messages.filter(x => x.status === 'open')} title="Open" color="#F0AD4E"></KanbanRow>
                     <KanbanRow messages={messages.filter(x => x.status === 'doing')} title= "Doing" color="#5CB85C"></KanbanRow>
                     <KanbanRow messages={messages.filter(x => x.status === 'pending')} title= "Pending" color="#00CCFF"></KanbanRow>
                     <KanbanRow messages={messages.filter(x => x.status === 'done')} title= "Done" color="#FE9A76"></KanbanRow>
+                    <EditModal selectedMessage={selectedMessage}/>
                   </React.Fragment>                
                 );
               }}
@@ -35,7 +36,6 @@ class App extends React.Component {
           </div>
         </div>
 
-        <EditModal />
       </MessageStore>
 
     );

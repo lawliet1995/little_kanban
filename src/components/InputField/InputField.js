@@ -2,14 +2,29 @@ import React from 'react';
 import styles from "./InputField.module.css";
 import MessageContext from '../../contexts/MessageContext';
 class InputField extends React.Component {
-    constructor(props) {
+    static contextType = MessageContext;
+
+    constructor(props, context) {
         super(props);
         this.state = {
+            curId: null,
             curText: '',
             curState: 'open',
         };
     }
-    static contextType = MessageContext;
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log('props change?')
+        if (nextProps.id) {
+            return {
+                curId: nextProps.id || null,
+                curText: nextProps.text || '',
+                curState: nextProps.state || 'open'
+            };
+        } else {
+            return null;
+        }        
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -33,7 +48,8 @@ class InputField extends React.Component {
                     
                     <div className={styles.flexContainer}>
                         <input id={styles.textInput} type="text" 
-                            name="task-name" placeholder="write task here"
+                            name="task-name" placeholder="write task here" 
+                            value={`${this.state.curText}`}
                             onChange={this.handleTyping}>
                         </input>
 
