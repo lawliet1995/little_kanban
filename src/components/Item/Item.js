@@ -8,9 +8,9 @@ class Item extends React.Component {
     handleClick = (e) => {
       e.preventDefault();
       e.stopPropagation();
-      this.context.onSetSelectedMessage(this.props.data);
+      // this.context.onSetSelectedMessage(this.props.data);
       
-      window.$('.ui.modal').modal('show');
+      this.context.onDeleteMessage(this.props.data.id)
     }
   
     render() {

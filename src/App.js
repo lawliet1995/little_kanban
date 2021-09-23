@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from "./App.module.css";
 import KanbanRow from './components/KanbanRow/KanbanRow';
-import EditModal from './components/EditModal/EditModal';
 import InputField from './components/InputField/InputField';
 import {MessageStore} from './contexts/MessageContext';
 import MessageContext from './contexts/MessageContext';
@@ -28,7 +27,6 @@ class App extends React.Component {
                     <KanbanRow messages={messages.filter(x => x.status === 'doing')} title= "Doing" color="#5CB85C"></KanbanRow>
                     <KanbanRow messages={messages.filter(x => x.status === 'pending')} title= "Pending" color="#00CCFF"></KanbanRow>
                     <KanbanRow messages={messages.filter(x => x.status === 'done')} title= "Done" color="#FE9A76"></KanbanRow>
-                    <EditModal selectedMessage={selectedMessage}/>
                   </React.Fragment>                
                 );
               }}

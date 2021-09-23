@@ -14,7 +14,6 @@ class InputField extends React.Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        console.log('props change?')
         if (nextProps.id) {
             return {
                 curId: nextProps.id || null,
