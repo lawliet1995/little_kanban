@@ -11,21 +11,25 @@ class Modal extends React.Component {
         id: props.id,
         status: props.status,
         text: props.text,
+        isInputValid: true
       };
     }
 
     handleTyping = (e) => {
-      this.setState({...this.state, text: e.target.value});
+      this.setState({...this.state, text: e.target.value, isInputValid: true});
     }
 
     handleSelect = (e) => {
         this.setState({...this.state, status: e.target.value});
     }
 
-    handleSave = (e) => {
-      console.log(this.state);
-      this.context.onUpdateMessage(this.state.id, this.state.text, this.state.status);
-      this.props.handleClose();
+    handleSave = () => {
+      if (this.state.text.length === 0) {
+        this.setState({...this.state, isInputValid: false});
+      } else {
+        this.context.onUpdateMessage(this.state.id, this.state.text, this.state.status);
+        this.props.handleClose();
+      }
     }
 
     handleDelete = (e) => {
@@ -43,13 +47,15 @@ class Modal extends React.Component {
                     <form className="ui form" style={{width:'100%'}}>
                         <div className="field">
                             <div className={styles.flexContainer}>
-                                <input id={styles.textInput} type="text" 
+                                <input type="text" 
                                     name="task-name" placeholder="write task here" 
                                     value={`${this.state.text}`}
-                                    onChange={this.handleTyping}>
+                                    onChange={this.handleTyping}
+                                    className = {`${this.state.isInputValid ? '' : styles.invalidInput}  ${styles.textInput}`}
+                                    >
                                 </input>
 
-                                <select id={styles.selectLabel} className="ui dropdown" 
+                                <select className={`ui dropdown ${styles.selectLabel}`}
                                     value = {`${this.state.status}`}
                                     onChange={this.handleSelect}>
                                   <option value="open">open</option>

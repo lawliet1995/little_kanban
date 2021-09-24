@@ -10,29 +10,22 @@ class InputField extends React.Component {
             curId: null,
             curText: '',
             curStatus: 'open',
+            isInputValid: true
         };
-    }
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.id) {
-            return {
-                curId: nextProps.id || null,
-                curText: nextProps.text || '',
-                curStatus: nextProps.state || 'open'
-            };
-        } else {
-            return null;
-        }        
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        this.context.onAddMessage(this.state.curText, this.state.curStatus);
+        if (this.state.curText.length === 0) {
+            this.setState({...this.state, isInputValid: false});
+        } else {
+            this.context.onAddMessage(this.state.curText, this.state.curStatus);
+        }
     }
 
     handleTyping = (e) => {
-        this.setState({...this.state, curText: e.target.value});
+        this.setState({...this.state, curText: e.target.value, isInputValid: true});
     }
 
     handleSelect = (e) => {
@@ -43,16 +36,18 @@ class InputField extends React.Component {
         return (
             <form className="ui form" onSubmit={this.handleSubmit}>
                 <div className="field">
-                    <label id={styles.textLabel} style={{display: `${typeof this.props.label !== 'undefined' ? 'block': 'none'}`}}>Add New Task</label>
+                    <label className={styles.textLabel} style={{display: `${typeof this.props.label !== 'undefined' ? 'block': 'none'}`}}>Add New Task</label>
                     
                     <div className={styles.flexContainer}>
-                        <input id={styles.textInput} type="text" 
+                        <input type="text" 
                             name="task-name" placeholder="write task here" 
                             value={`${this.state.curText}`}
-                            onChange={this.handleTyping}>
+                            onChange={this.handleTyping}
+                            className = {`${this.state.isInputValid ? '' : styles.invalidInput} ${styles.textInput}`}
+                            >
                         </input>
 
-                        <select id={styles.selectLabel} className="ui dropdown" onChange={this.handleSelect}>
+                        <select className={`ui dropdown ${styles.selectLabel}`} onChange={this.handleSelect}>
                             <option value="open">open</option>
                             <option value="doing">doing</option>
                             <option value="pending">pending</option>
