@@ -40,8 +40,7 @@ class Item extends React.Component {
               text = {this.props.text}
               status = {this.props.status}
               handleClose={this.hideModal}
-              handleSubmit={this.hideModal}
-              handleDelete={this.hideModal}>
+          >
               <h2> Edit Task</h2>
           </Modal>
         </div>

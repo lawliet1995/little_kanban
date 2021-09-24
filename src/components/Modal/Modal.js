@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Modal.module.css";
+import MessageContext from '../../contexts/MessageContext';
 
 class Modal extends React.Component {
+  static contextType = MessageContext;
+
     constructor(props) {
       super(props);
       this.state = {
@@ -21,6 +24,15 @@ class Modal extends React.Component {
 
     handleSave = (e) => {
       console.log(this.state);
+      this.context.onUpdateMessage(this.state.id, this.state.text, this.state.status);
+      this.props.handleClose();
+    }
+
+    handleDelete = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.context.onDeleteMessage(this.state.id);
+      this.props.handleClose();
     }
  
     render() {
@@ -28,9 +40,7 @@ class Modal extends React.Component {
             <div className={`${this.props.show ? styles['display-block'] : styles['display-none']} ${styles['modal']}`}>
               <div className={styles['modal-main']}>
                 <div className={styles['content']}>
-                    
-                    
-                    <form className="ui form" style={{width:'100%'}} onSubmit={this.handleSubmit}>
+                    <form className="ui form" style={{width:'100%'}}>
                         <div className="field">
                             <div className={styles.flexContainer}>
                                 <input id={styles.textInput} type="text" 
@@ -42,10 +52,10 @@ class Modal extends React.Component {
                                 <select id={styles.selectLabel} className="ui dropdown" 
                                     value = {`${this.state.status}`}
                                     onChange={this.handleSelect}>
-                                    <option value="open">open</option>
-                                    <option value="doing">doing</option>
-                                    <option value="pending">pending</option>
-                                    <option value="done">done</option>
+                                  <option value="open">open</option>
+                                  <option value="doing">doing</option>
+                                  <option value="pending">pending</option>
+                                  <option value="done">done</option>
                                 </select>
                             </div>
                         </div>
@@ -54,7 +64,7 @@ class Modal extends React.Component {
                 <div className={styles['buttonField']}>
                   
                   <div>
-                    <div className="ui left floated red deny button">
+                    <div className="ui left floated red deny button" onClick={this.handleDelete}>
                       Delete task
                     </div>
                     <div className="ui grey deny button" onClick={this.props.handleClose}>

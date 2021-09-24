@@ -9,7 +9,7 @@ class InputField extends React.Component {
         this.state = {
             curId: null,
             curText: '',
-            curState: 'open',
+            curStatus: 'open',
         };
     }
 
@@ -18,7 +18,7 @@ class InputField extends React.Component {
             return {
                 curId: nextProps.id || null,
                 curText: nextProps.text || '',
-                curState: nextProps.state || 'open'
+                curStatus: nextProps.state || 'open'
             };
         } else {
             return null;
@@ -28,7 +28,7 @@ class InputField extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        this.context.onAddMessage(this.state.curText, this.state.curState);
+        this.context.onAddMessage(this.state.curText, this.state.curStatus);
     }
 
     handleTyping = (e) => {
@@ -36,7 +36,7 @@ class InputField extends React.Component {
     }
 
     handleSelect = (e) => {
-        this.setState({...this.state, curState: e.target.value});
+        this.setState({...this.state, curStatus: e.target.value});
     }
 
     render () {
