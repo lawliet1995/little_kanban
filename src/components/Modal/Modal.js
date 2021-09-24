@@ -39,7 +39,9 @@ class Modal extends React.Component {
                                     onChange={this.handleTyping}>
                                 </input>
 
-                                <select id={styles.selectLabel} className="ui dropdown" onChange={this.handleSelect}>
+                                <select id={styles.selectLabel} className="ui dropdown" 
+                                    value = {`${this.state.status}`}
+                                    onChange={this.handleSelect}>
                                     <option value="open">open</option>
                                     <option value="doing">doing</option>
                                     <option value="pending">pending</option>

@@ -20,7 +20,7 @@ class App extends React.Component {
           <div className="ui divider" ></div>
           <div className={styles.kanban}>
             <MessageContext.Consumer>
-              {({selectedMessage, messages}) => {
+              {({messages}) => {
                 return (
                   <React.Fragment>
                     <KanbanRow messages={messages.filter(x => x.status === 'open')} title="Open" color="#F0AD4E"></KanbanRow>

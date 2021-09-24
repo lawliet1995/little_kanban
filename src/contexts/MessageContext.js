@@ -4,7 +4,6 @@ const Context = React.createContext('');
 
 export class MessageStore extends React.Component {
   state = {
-    selectedMessage: {},
     messages: [
       {id: 1, text: 'walk the dog', status: 'done'},
       {id: 2, text: 'clean the house', status: 'done'},
@@ -56,13 +55,6 @@ export class MessageStore extends React.Component {
     });
   };
 
-  onSetSelectedMessage = (message) => {
-    this.setState({
-      ...this.state,
-      selectedMessage: message,
-    });
-  };
-
   render() {
     return (
       <Context.Provider
@@ -70,7 +62,6 @@ export class MessageStore extends React.Component {
             onAddMessage: this.onAddMessage,
             onDeleteMessage: this.onDeleteMessage,
             onUpdateMessage: this.onUpdateMessage,
-            onSetSelectedMessage: this.onSetSelectedMessage
         }}
       >
         {this.props.children}
