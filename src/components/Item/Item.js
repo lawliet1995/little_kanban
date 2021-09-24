@@ -5,8 +5,8 @@ import Modal from '../Modal/Modal';
 
 class Item extends React.Component {
   static contextType = MessageContext;
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         show: false
       };
@@ -36,10 +36,13 @@ class Item extends React.Component {
             {this.props.children}
           </a>
           <Modal show={this.state.show} 
-                handleClose={this.hideModal}
-                handleSubmit={this.hideModal}
-                handleDelete={this.hideModal}>
-            <p>Modal</p>
+              id = {this.props.id}
+              text = {this.props.text}
+              status = {this.props.status}
+              handleClose={this.hideModal}
+              handleSubmit={this.hideModal}
+              handleDelete={this.hideModal}>
+              <h2> Edit Task</h2>
           </Modal>
         </div>
         </div>

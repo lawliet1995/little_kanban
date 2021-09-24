@@ -14,7 +14,8 @@ class KanbanRow extends React.Component {
             <Item
               key={item.id}
               id={item.id}
-              data={item}
+              status={item.status}
+              text={item.text}
             >
               {item.text}
             </Item>
