@@ -43,6 +43,9 @@ class Modal extends React.Component {
         return (
             <div className={`${this.props.show ? styles['display-block'] : styles['display-none']} ${styles['modal']}`}>
               <div className={styles['modal-main']}>
+                <div className= {`${styles['header']} ui header`}>
+                    Edit task
+                </div>
                 <div className={styles['content']}>
                     <form className="ui form" style={{width:'100%'}}>
                         <div className="field">
