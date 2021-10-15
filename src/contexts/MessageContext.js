@@ -8,11 +8,11 @@ export class MessageStore extends React.Component {
       {id: 1, text: 'walk the dog', status: 'done'},
       {id: 2, text: 'clean the house', status: 'done'},
       {id: 4, text: 'buy the textbook', status: 'pending'},
-      {id: 5, text: 'buy a new phone', status: 'pending'},
-      {id: 6, text: 'mission impossible', status: 'pending'},
-      {id: 7, text: 'coding something', status: 'doing'},
-      {id: 8, text: 'become a billionare', status: 'open'},
-      {id: 9, text: 'buy a tesla', status: 'open'},
+      {id: 5, text: 'contact the travel agencies', status: 'pending'},
+      {id: 6, text: 'do the homework2', status: 'pending'},
+      {id: 7, text: 'do the homework1', status: 'doing'},
+      {id: 8, text: 'buy the ingredients for dinner', status: 'open'},
+      {id: 9, text: 'buy iphone13', status: 'open'},
     ], 
     counter: 10
   };  
